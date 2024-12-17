@@ -1,0 +1,33 @@
+{
+  "name": "future-dashboard",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite --host",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@lottiefiles/vue-lottie-player": "^1.1.0",
+    "gsap": "^3.12.5",
+    "lottie-web": "^5.12.2",
+    "lucide-vue-next": "^0.456.0",
+    "pinia": "^2.1.7",
+    "primeicons": "^7.0.0",
+    "primevue": "^3.53.0",
+    "swiper": "^11.1.12",
+    "vue": "^3.4.29",
+    "vue-router": "^4.4.5"
+  },
+  "devDependencies": {
+    "@tailwindcss/forms": "^0.5.9",
+    "@tailwindcss/typography": "^0.5.15",
+    "@vitejs/plugin-vue": "^5.0.5",
+    "@vitejs/plugin-vue-jsx": "^4.0.0",
+    "autoprefixer": "^10.4.20",
+    "postcss": "^8.4.49",
+    "tailwindcss": "^3.4.16",
+    "vite": "^5.3.1"
+  }
+}
