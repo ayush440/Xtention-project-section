@@ -3,13 +3,13 @@
     <!-- Background Image -->
     <div 
       class="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-50"
-      style="background-image: url('/public/image8.jpg')"
+      :style="{ backgroundImage: `url(${backgroundImage})` }"
     ></div>
 
     <!-- Navigation Bar -->
     <nav class="relative z-20 w-full px-6 lg:px-16 py-6">
       <img 
-        src="/public/matrix.png" 
+        :src="logoImage" 
         alt="Matrix Trading Tech" 
         class="h-12 w-auto"
       />
@@ -17,7 +17,6 @@
 
     <!-- Content Container -->
     <div ref="contentContainer" class="relative z-10 w-full h-[calc(100vh-88px)] mt-0 sm:-mt-20 md:-mt-0 xl:-mt-0 lg:-mt-0  flex items-center">
-
       <div class="w-full px-6 lg:px-16">
         <div class="w-full lg:w-1/2 max-w-2xl">
           <!-- SEBI Registration Badge -->
@@ -46,6 +45,10 @@
 import { ref, onMounted } from 'vue'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
+
+// Import images
+import backgroundImage from '@/assets/images/background.png'
+import logoImage from '@/assets/images/matrix.png'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -78,4 +81,3 @@ onMounted(() => {
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Caveat&family=Cabinet+Grotesk:wght@700&display=swap');
 </style>
-
