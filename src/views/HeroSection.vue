@@ -3,7 +3,7 @@
     <!-- Background Image -->
     <div 
       class="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-50"
-      style="background-image: url('/public/background.png')"
+      style="background-image: url('/public/image8.jpg')"
     ></div>
 
     <!-- Navigation Bar -->
