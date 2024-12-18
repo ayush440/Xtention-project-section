@@ -1,7 +1,7 @@
 <template>
   <div class="min-h-[200px] bg-[#222222] flex flex-col ml-16">
     <!-- Desktop Marquee -->
-    <div class="hidden  lg:flex w-full md:w-1/2 items-center bg-[#222222]">
+    <div class="hidden lg:flex w-full md:w-1/2 items-center bg-[#222222]">
       <Vue3Marquee
         :gradient="true"
         :gradient-color="[26, 26, 26]"
@@ -41,22 +41,32 @@
 </template>
 
 <script setup>
-import { onMounted } from "vue";
+import { onMounted, ref } from "vue";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const imgArray = [
-  "/public/dhan.jpg",
-  "/src/assets/marquee/logo2.png",
-  "/src/assets/marquee/logo3.png",
-  "/src/assets/marquee/logo4.png",
-  "/src/assets/marquee/logo5.png",
-  "/src/assets/marquee/logo6.png",
-  "/src/assets/marquee/logo7.png",
-  "/src/assets/marquee/logo8.png",
-]
+// Import all images
+import logo1 from '@/assets/marquee/logo1.png'
+import logo2 from '@/assets/marquee/logo2.png'
+import logo3 from '@/assets/marquee/logo3.png'
+import logo4 from '@/assets/marquee/logo4.png'
+import logo5 from '@/assets/marquee/logo5.png'
+import logo6 from '@/assets/marquee/logo6.png'
+import logo7 from '@/assets/marquee/logo7.png'
+import logo8 from '@/assets/marquee/logo8.png'
+
+const imgArray = ref([
+  logo1,
+  logo2,
+  logo3,
+  logo4,
+  logo5,
+  logo6,
+  logo7,
+  logo8,
+]);
 
 onMounted(() => {
   ScrollTrigger.create({
