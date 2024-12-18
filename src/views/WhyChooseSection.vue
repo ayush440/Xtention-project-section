@@ -25,7 +25,7 @@
           >
             <div class="flex items-start gap-6">
               <img 
-                :src="'/public/Vector.svg'" 
+                :src="'/public/vectorr.png'" 
                 alt="Green check icon" 
                 class="w-7 h-7 flex-shrink-0 mt-5"
               />
