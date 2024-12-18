@@ -66,10 +66,10 @@
                     
                     <button
                       type="submit"
-                      class="w-full bg-black text-white py-4 sm:py-5 text-base sm:text-xl rounded-xl font-semibold hover:bg-gray-900 transition-colors flex items-center justify-center gap-3 mt-6 sm:mt-8"
+                      class="w-full bg-[#FFD700] text-black py-4 sm:py-5 text-base sm:text-xl rounded-xl font-semibold hover:bg-[#e6c200] transition-colors flex items-center justify-center gap-3 mt-6 sm:mt-8"
                     >
                       <span>Get Demo</span>
-                      <span class="bg-[#FFD700] text-black text-xs sm:text-sm px-2 sm:px-3 py-1 rounded-lg">IT'S FREE</span>
+                      <span class="bg-black text-white text-xs sm:text-sm px-2 sm:px-3 py-1 rounded-lg">IT'S FREE</span>
                     </button>
                   </form>
 
@@ -135,10 +135,10 @@
             
             <button
               type="submit"
-              class="w-full bg-black text-white py-4 sm:py-5 text-base sm:text-xl rounded-xl font-semibold hover:bg-gray-900 transition-colors flex items-center justify-center gap-3 mt-6 sm:mt-8"
+              class="w-full bg-[#FFD700] text-black py-4 sm:py-5 text-base sm:text-xl rounded-xl font-semibold hover:bg-[#e6c200] transition-colors flex items-center justify-center gap-3 mt-6 sm:mt-8"
             >
               <span>Get Demo</span>
-              <span class="bg-[#FFD700] text-black text-xs sm:text-sm px-2 sm:px-3 py-1 rounded-lg">IT'S FREE</span>
+              <span class="bg-black text-white text-xs sm:text-sm px-2 sm:px-3 py-1 rounded-lg">IT'S FREE</span>
             </button>
           </form>
 
@@ -155,12 +155,12 @@
 
     <!-- Mobile/Tablet Button -->
     <button
-      v-if="isSmallScreen"
+      v-if="isSmallScreen && !showLoginForm"
       @click="openLoginForm"
-      class="fixed bottom-4 left-4 right-4 bg-black text-white py-4 sm:py-5 text-base sm:text-xl rounded-xl font-semibold hover:bg-gray-900 transition-colors flex items-center justify-center gap-3 z-50"
+      class="fixed bottom-4 left-4 right-4 bg-[#FFD700] text-black py-4 sm:py-5 text-base sm:text-xl rounded-xl font-semibold hover:bg-[#e6c200] transition-colors flex items-center justify-center gap-3 z-50"
     >
       <span>Get Demo</span>
-      <span class="bg-[#FFD700] text-black text-xs sm:text-sm px-2 sm:px-3 py-1 rounded-lg">IT'S FREE</span>
+      <span class="bg-black text-white text-xs sm:text-sm px-2 sm:px-3 py-1 rounded-lg">IT'S FREE</span>
     </button>
   </div>
 </template>
