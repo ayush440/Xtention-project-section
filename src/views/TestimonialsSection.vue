@@ -46,13 +46,13 @@
               v-for="(testimonial, index) in testimonials"
               :key="index"
               :id="`testimonial-${index}`"
-              class="inline-block w-full md:w-[calc(50%-1rem)] p-8 bg-[#2a2a2a] rounded-xl mr-8 last:mr-0 transition-opacity duration-300 ease-in-out"
+              class="inline-block w-[400px] h-[300px] p-8 bg-[#2a2a2a] rounded-xl mr-8 last:mr-0 transition-opacity duration-300 ease-in-out shrink-0 testimonial-card"
               :class="{ 'opacity-50 hover:opacity-100 transition-opacity duration-300': currentSlide !== index }"
               @mouseenter="handleHover(index)"
               @mouseleave="handleHoverExit(index)"
             >
               <div class="h-full flex flex-col justify-between">
-                <p class="text-gray-300 mb-6 text-lg leading-relaxed whitespace-normal">
+                <p class="text-gray-300 mb-6 text-lg leading-relaxed whitespace-normal line-clamp-4">
                   {{ testimonial.quote }}
                 </p>
                 <div class="flex items-center gap-4">
@@ -269,5 +269,17 @@ onMounted(() => {
 }
 .scrollbar-hide::-webkit-scrollbar {
   display: none;
+}
+
+.testimonial-card {
+  min-width: 400px;
+  max-width: 400px;
+}
+
+@media (max-width: 480px) {
+  .testimonial-card {
+    min-width: 300px;
+    max-width: 300px;
+  }
 }
 </style>
