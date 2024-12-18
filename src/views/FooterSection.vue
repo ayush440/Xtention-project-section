@@ -32,7 +32,7 @@
         </div>
 
         <!-- Contact Info -->
-        <div ref="contactInfo" class="opacity-0">
+        <div ref="contactInfo" class="opacity-0 ">
           <h3 class="text-white text-2xl font-semibold mb-8">Get in touch with us</h3>
           <div class="space-y-6">
             <div class="flex items-center gap-4">

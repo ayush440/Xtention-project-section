@@ -18,12 +18,22 @@
             v-for="(feature, index) in features" 
             :key="index"
             :ref="el => { if (el) featureRefs[index] = el }"
-            class="p-4 bg-[#2a2a2a] rounded-xl transition-all hover:transform hover:translate-x-2 border-2 border-transparent hover:border-[#00D647] opacity-0"
+            :class="[
+              ' p-2 rounded-xl transition-all hover:transform hover:translate-x-2 border-2 opacity-0',
+              index === 0 ? 'bg-[#2F2A1B] border-[#4A3F2C]' : 'bg-[#2a2a2a] border-transparent hover:border-[#00D647]'
+            ]"
           >
             <div class="flex items-start gap-6">
-              <CheckCircle2 class="w-10 h-10 text-[#00D647] flex-shrink-0 mt-1" />
+              <img 
+                :src="'/public/Vector.svg'" 
+                alt="Green check icon" 
+                class="w-7 h-7 flex-shrink-0 mt-5"
+              />
               <div>
-                <h3 class="text-white text-2xl font-semibold mb-3">
+                <h3 
+                  class="text-2xl font-semibold mb-3"
+                  :class="index === 0 ? 'text-[#FFB800]' : 'text-white'"
+                >
                   {{ feature.title }}
                 </h3>
                 <p class="text-gray-400 text-lg">
@@ -42,7 +52,6 @@
 import { ref, onMounted } from 'vue'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
-import { CheckCircle2 } from 'lucide-vue-next'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -73,6 +82,10 @@ const features = [
   {
     title: 'Compatible with All Major Brokers',
     description: 'Easy integration with TradingView & your broker.'
+  },
+  {
+    title: 'Scalable and Customizable',
+    description: 'Tailor strategies that suit your trading style.'
   }
 ]
 
@@ -100,6 +113,7 @@ onMounted(() => {
 
   // Animate feature cards
   featureRefs.value.forEach((feature, index) => {
+    // Initial animation
     gsap.fromTo(
       feature,
       { 
@@ -117,9 +131,30 @@ onMounted(() => {
           end: 'bottom center',
           toggleActions: 'play none none reverse'
         },
-        delay: index * 0.1 // Stagger effect
+        delay: index * 0.1
       }
     )
+
+    // Border color animation
+    if (index !== 0) { // Skip first row as it has fixed styling
+      gsap.fromTo(
+        feature,
+        { 
+          borderColor: 'transparent'
+        },
+        {
+          borderColor: '#00D647',
+          duration: 0.3,
+          paused: true,
+          scrollTrigger: {
+            trigger: feature,
+            start: 'top center',
+            end: 'bottom center',
+            toggleActions: 'play reverse play reverse'
+          }
+        }
+      )
+    }
   })
 })
 </script>
@@ -129,4 +164,3 @@ onMounted(() => {
   background: linear-gradient(145deg, #2a2a2a 0%, #222222 100%);
 }
 </style>
-

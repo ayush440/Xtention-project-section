@@ -26,13 +26,13 @@
           </div>
 
           <!-- Main Content -->
-          <h1 class="text-3xl lg:text-4xl font-bold leading-tight mb-8 text-white">
+          <h1 class="text-3xl lg:text-4xl font-bold leading-tight mb-8 text-white font-CabinetGrotesk">
             Unlock Consistent Profits with Our SEBI Registered Algo Trading Platform
           </h1>
           <p class="text-lg lg:text-xl mb-8 text-gray-200">
             Automate your Nifty & Bank Nifty trades and watch profits grow effortlessly.
           </p>
-          <p class="text-2xl lg:text-2xl font-handwriting text-[#00D647] italic">
+          <p class="text-2xl lg:text-2xl font-Caveat text-[#00D647] italic">
             Say goodbye to emotional trading. Let our smart algorithms handle it all while you focus on what matters!
           </p>
         </div>
@@ -74,13 +74,7 @@ onMounted(() => {
 })
 </script>
 
-<style scoped>
-@font-face {
-  font-family: 'Handwriting';
-  src: url('/fonts/Geist-Regular.ttf') format('truetype');
-}
-
-.font-handwriting {
-  font-family: 'Handwriting', cursive;
-}
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Caveat&family=Cabinet+Grotesk:wght@700&display=swap');
 </style>
+

@@ -1,7 +1,7 @@
 <template>
   <div class="min-h-[200px] bg-[#222222] flex flex-col ml-16">
     <!-- Desktop Marquee -->
-    <div class="hidden lg:flex w-full items-center bg-[#222222]">
+    <div class="hidden  lg:flex w-full md:w-1/2 items-center bg-[#222222]">
       <Vue3Marquee
         :gradient="true"
         :gradient-color="[26, 26, 26]"
@@ -43,6 +43,9 @@
 <script setup>
 import { onMounted } from "vue";
 import gsap from "gsap";
+import ScrollTrigger from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
 
 const imgArray = [
   "/src/assets/images/marquee/logo1.png",
@@ -56,17 +59,23 @@ const imgArray = [
 ];
 
 onMounted(() => {
-
-  gsap.fromTo(
-    ".gsap-image img",
-    { x: "100%", opacity: 0 },
-    {
-      x: "0%",
-      opacity: 1,
-      duration: 1.5,
-      ease: "power2.out",
-      stagger: 0.2, 
-    }
-  );
+  ScrollTrigger.create({
+    trigger: ".gsap-image",
+    start: "top bottom-=100px",
+    once: true,
+    onEnter: () => {
+      gsap.fromTo(
+        ".gsap-image img",
+        { x: "100%", opacity: 0 },
+        {
+          x: "0%",
+          opacity: 1,
+          duration: 1.5,
+          ease: "power2.out",
+          stagger: 0.2,
+        }
+      );
+    },
+  });
 });
 </script>

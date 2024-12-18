@@ -8,9 +8,11 @@ export default {
     extend: {
       fontFamily: {
         Poppins: ['Poppins', 'sans-serif'],
+        Caveat: ['Caveat', 'cursive'],
+      CabinetGrotesk: ['Cabinet Grotesk', 'sans-serif'],
       },
       colors: {
-        primary: '#31427A', // Replace with your desired color code
+        primary: '#00b852', // Replace with your desired color code
       },
        
       screens: {

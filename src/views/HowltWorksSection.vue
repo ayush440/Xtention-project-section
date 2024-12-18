@@ -18,8 +18,7 @@
             v-for="(step, index) in steps" 
             :key="index"
             :ref="el => { if (el) stepRefs[index] = el }"
-            class="relative p-4 bg-[#2a2a2a] rounded-xl border-2 transition-colors duration-100 h-[260px] flex flex-col justify-center opacity-0"
-            :class="[activeStep === index ? 'border-[#00D647]' : 'border-transparent']"
+            class="relative p-4 bg-[#2a2a2a] rounded-xl border-2 border-transparent transition-all duration-300 h-[260px] flex flex-col justify-center opacity-0"
           >
             <div class="absolute top-8 left-8 text-[120px] font-bold text-gray-600/10 select-none">
               {{ index + 1 }}
@@ -47,7 +46,7 @@
               class="bg-[#00b852] text-white py-4 px-5 text-xl rounded-lg hover:bg-[#00B33C] transition-colors flex items-center gap-3"
             >
               <Phone class="w-6 h-6" />
-              <span>Call Us now +919103609</span>
+              <span>Call Us now +919109302789</span>
             </button>
           </div>
         </div>
@@ -57,7 +56,7 @@
 </template>
 
 <script setup>
-import { ref, onMounted, onUnmounted } from 'vue'
+import { ref, onMounted } from 'vue'
 import { Phone } from 'lucide-vue-next'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
@@ -82,15 +81,6 @@ const steps = [
 const header = ref(null)
 const stepRefs = ref([])
 const contactSection = ref(null)
-const activeStep = ref(0)
-
-const observerOptions = {
-  root: null,
-  rootMargin: '0px',
-  threshold: 0.6
-}
-
-let observers = []
 
 onMounted(() => {
   // Animate header
@@ -114,8 +104,9 @@ onMounted(() => {
     }
   )
 
-  // Animate steps
+  // Animate steps and implement scroll-triggered border color change
   stepRefs.value.forEach((step, index) => {
+    // Initial animation for opacity and position
     gsap.fromTo(
       step,
       { 
@@ -134,6 +125,23 @@ onMounted(() => {
           toggleActions: 'play none none reverse'
         },
         delay: index * 0.2 // Stagger effect
+      }
+    )
+
+    // Scroll-triggered border color change
+    gsap.fromTo(
+      step,
+      { borderColor: 'transparent' },
+      {
+        borderColor: '#00D647',
+        duration: 0.3,
+        scrollTrigger: {
+          trigger: step,
+          start: 'top center+=100',
+          end: 'bottom center-=100',
+          toggleActions: 'play reverse play reverse',
+          scrub: true
+        }
       }
     )
   })
@@ -158,28 +166,6 @@ onMounted(() => {
       }
     }
   )
-
-  // Set up Intersection Observers for step highlighting
-  stepRefs.value.forEach((step, index) => {
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          activeStep.value = index
-        }
-      })
-    }, observerOptions)
-
-    if (step) {
-      observer.observe(step)
-      observers.push(observer)
-    }
-  })
-
-  activeStep.value = 0
-})
-
-onUnmounted(() => {
-  observers.forEach(observer => observer.disconnect())
 })
 
 const handleCall = () => {
