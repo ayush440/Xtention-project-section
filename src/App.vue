@@ -38,6 +38,7 @@
                       v-model="formData.name"
                       placeholder="Your name"
                       class="w-full p-4 sm:p-5 text-base sm:text-lg rounded-xl bg-[#19bf63] placeholder-white/70 text-white focus:outline-none focus:ring-2 focus:ring-white/50"
+                      required
                     />
                     
                     <input
@@ -45,6 +46,7 @@
                       v-model="formData.mobile"
                       placeholder="Your Mobile number"
                       class="w-full p-4 sm:p-5 text-base sm:text-lg rounded-xl bg-[#19bf63] placeholder-white/70 text-white focus:outline-none focus:ring-2 focus:ring-white/50"
+                      required
                     />
                     
                     <input
@@ -57,6 +59,7 @@
                     <select
                       v-model="formData.role"
                       class="w-full p-4 sm:p-5 text-base sm:text-lg rounded-xl bg-[#19bf63] text-white focus:outline-none focus:ring-2 focus:ring-white/50"
+                      required
                     >
                       <option value="" disabled selected>You're a</option>
                       <option value="trader">Trader</option>
@@ -67,11 +70,17 @@
                     <button
                       type="submit"
                       class="w-full bg-[#FFD700] text-black py-4 sm:py-5 text-base sm:text-xl rounded-xl font-semibold hover:bg-[#e6c200] transition-colors flex items-center justify-center gap-3 mt-6 sm:mt-8"
+                      :disabled="isSubmitting"
                     >
-                      <span>Get Demo</span>
+                      <span>{{ isSubmitting ? 'Submitting...' : 'Get Demo' }}</span>
                       <span class="bg-black text-white text-xs sm:text-sm px-2 sm:px-3 py-1 rounded-lg">IT'S FREE</span>
                     </button>
                   </form>
+
+                  <!-- Success/Error Message -->
+                  <div v-if="message" :class="['mt-4 p-3 rounded-lg', messageClass]">
+                    {{ message }}
+                  </div>
 
                   <!-- Trust Indicator -->
                   <div class="mt-8 sm:mt-10 text-center">
@@ -107,6 +116,7 @@
               v-model="formData.name"
               placeholder="Your name"
               class="w-full p-4 sm:p-5 text-base sm:text-lg rounded-xl bg-[#19bf63] placeholder-white/70 text-white focus:outline-none focus:ring-2 focus:ring-white/50"
+              required
             />
             
             <input
@@ -114,6 +124,7 @@
               v-model="formData.mobile"
               placeholder="Your Mobile number"
               class="w-full p-4 sm:p-5 text-base sm:text-lg rounded-xl bg-[#19bf63] placeholder-white/70 text-white focus:outline-none focus:ring-2 focus:ring-white/50"
+              required
             />
             
             <input
@@ -126,6 +137,7 @@
             <select
               v-model="formData.role"
               class="w-full p-4 sm:p-5 text-base sm:text-lg rounded-xl bg-[#19bf63] text-white focus:outline-none focus:ring-2 focus:ring-white/50"
+              required
             >
               <option value="" disabled selected>You're a</option>
               <option value="trader">Trader</option>
@@ -136,11 +148,17 @@
             <button
               type="submit"
               class="w-full bg-[#FFD700] text-black py-4 sm:py-5 text-base sm:text-xl rounded-xl font-semibold hover:bg-[#e6c200] transition-colors flex items-center justify-center gap-3 mt-6 sm:mt-8"
+              :disabled="isSubmitting"
             >
-              <span>Get Demo</span>
+              <span>{{ isSubmitting ? 'Submitting...' : 'Get Demo' }}</span>
               <span class="bg-black text-white text-xs sm:text-sm px-2 sm:px-3 py-1 rounded-lg">IT'S FREE</span>
             </button>
           </form>
+
+          <!-- Success/Error Message -->
+          <div v-if="message" :class="['mt-4 p-3 rounded-lg', messageClass]">
+            {{ message }}
+          </div>
 
           <!-- Trust Indicator -->
           <div class="mt-8 sm:mt-10 text-center">
@@ -169,12 +187,16 @@
 import { ref, onMounted, onUnmounted, computed } from 'vue'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import axios from 'axios'
 
 gsap.registerPlugin(ScrollTrigger)
 
 const loginForm = ref(null)
 const showLoginForm = ref(false)
 const windowWidth = ref(window.innerWidth)
+const isSubmitting = ref(false)
+const message = ref('')
+const messageClass = ref('')
 
 const formData = ref({
   name: '',
@@ -185,9 +207,33 @@ const formData = ref({
 
 const isSmallScreen = computed(() => windowWidth.value < 1024)
 
-const handleSubmit = () => {
-  console.log('Form submitted:', formData.value)
-  closeLoginForm()
+const handleSubmit = async () => {
+  isSubmitting.value = true
+  message.value = ''
+  messageClass.value = ''
+
+  try {
+    const response = await axios.post('/contact-us', formData.value)
+    console.log('Form submitted successfully:', response.data)
+    message.value = 'Form submitted successfully! We will contact you soon.'
+    messageClass.value = 'bg-green-500 text-white'
+    resetForm()
+  } catch (error) {
+    console.error('Error submitting form:', error)
+    message.value = 'An error occurred. Please try again later.'
+    messageClass.value = 'bg-red-500 text-white'
+  } finally {
+    isSubmitting.value = false
+  }
+}
+
+const resetForm = () => {
+  formData.value = {
+    name: '',
+    mobile: '',
+    email: '',
+    role: ''
+  }
 }
 
 const openLoginForm = () => {
