@@ -48,7 +48,7 @@ import ScrollTrigger from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
 
 const imgArray = [
-  "/src/assets/marquee/logo1.png",
+  "/public/dhansvg.svg",
   "/src/assets/marquee/logo2.png",
   "/src/assets/marquee/logo3.png",
   "/src/assets/marquee/logo4.png",
