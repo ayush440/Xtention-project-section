@@ -5,7 +5,7 @@
         <!-- Header -->
         <div ref="header" class="flex items-center gap-6 mb-16 opacity-0">
           <div class="w-40">
-            <img src="/public/givelove.png" alt="Love icon" />
+            <img :src="giveloveLogo" alt="Love icon" />
           </div>
           <h2 class="text-2xl md:text-3xl lg:text-4xl font-bold text-white">
             We are loved by people from all parts of India
@@ -95,6 +95,12 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { ChevronLeftIcon, ChevronRightIcon } from 'lucide-vue-next';
 
+// Import images
+import giveloveLogo from '/public/givelove.png';
+import user1Avatar from '/public/user1.jpg';
+import user2Avatar from '/public/user2.jpg';
+import user4Avatar from '/public/user4.jpg';
+
 gsap.registerPlugin(ScrollTrigger);
 
 const header = ref(null);
@@ -127,22 +133,21 @@ const testimonials = [
       "I've got good returns in just 3 months thanks to this bot. It's a game-changer for intraday traders!",
     name: "Rahul M.",
     role: "Business Owner",
-    avatar: "/public/user1.jpg",
+    avatar: user1Avatar,
   },
   {
     quote:
       "The support team is incredibly responsive. They've helped me optimize my trading strategy.",
     name: "Pooja K.",
     role: "Working Professional",
-    avatar: "/public/user2.jpg",
+    avatar: user2Avatar,
   },
-
   {
     quote:
       "I was skeptical at first, but the results speak for themselves. Highly recommended!",
     name: "Priya R.",
     role: "Investor",
-    avatar: "/public/user4.jpg",
+    avatar: user4Avatar,
   },
 ];
 
@@ -266,4 +271,3 @@ onMounted(() => {
   display: none;
 }
 </style>
-
