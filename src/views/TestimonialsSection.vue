@@ -5,7 +5,7 @@
         <!-- Header -->
         <div ref="header" class="flex items-center gap-6 mb-16 opacity-0">
           <div class="w-40">
-            <img :src="giveLoveIcon" alt="Love icon" />
+            <img src="/public/givelove.png" alt="Love icon" />
           </div>
           <h2 class="text-2xl md:text-3xl lg:text-4xl font-bold text-white">
             We are loved by people from all parts of India
@@ -29,33 +29,60 @@
           </div>
         </div>
 
-        <!-- Testimonials Grid -->
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <!-- Testimonials Carousel -->
+        <div class="relative" ref="carouselContainer">
           <div
-            v-for="(testimonial, index) in testimonials"
-            :key="index"
-            :ref="el => {
-              if (el) testimonialRefs[index] = el;
-            }"
-            class="p-8 bg-[#2a2a2a] rounded-xl opacity-0"
+            class="overflow-x-scroll overflow-y-hidden whitespace-nowrap scrollbar-hide"
+            ref="carousel"
+            @mousedown="startDrag"
+            @mousemove="drag"
+            @mouseup="endDrag"
+            @mouseleave="endDrag"
+            @touchstart="startDrag"
+            @touchmove="drag"
+            @touchend="endDrag"
           >
-            <p class="text-gray-300 mb-6 text-lg leading-relaxed">
-              {{ testimonial.quote }}
-            </p>
-            <div class="flex items-center gap-4">
-              <img
-                :src="testimonial.avatar"
-                alt="User Avatar"
-                class="w-16 h-16 rounded-full"
-              />
-              <div>
-                <div class="text-white font-medium text-xl">
-                  {{ testimonial.name }}
+            <div
+              v-for="(testimonial, index) in testimonials"
+              :key="index"
+              :id="`testimonial-${index}`"
+              class="inline-block w-full md:w-[calc(50%-1rem)] p-8 bg-[#2a2a2a] rounded-xl mr-8 last:mr-0 transition-opacity duration-300 ease-in-out"
+              :class="{ 'opacity-50 hover:opacity-100 transition-opacity duration-300': currentSlide !== index }"
+              @mouseenter="handleHover(index)"
+              @mouseleave="handleHoverExit(index)"
+            >
+              <div class="h-full flex flex-col justify-between">
+                <p class="text-gray-300 mb-6 text-lg leading-relaxed whitespace-normal">
+                  {{ testimonial.quote }}
+                </p>
+                <div class="flex items-center gap-4">
+                  <img
+                    :src="testimonial.avatar"
+                    alt="User Avatar"
+                    class="w-16 h-16 rounded-full"
+                  />
+                  <div>
+                    <div class="text-white font-medium text-xl">
+                      {{ testimonial.name }}
+                    </div>
+                    <div class="text-gray-400 text-lg">{{ testimonial.role }}</div>
+                  </div>
                 </div>
-                <div class="text-gray-400 text-lg">{{ testimonial.role }}</div>
               </div>
             </div>
           </div>
+          <button
+            @click="prevSlide"
+            class="absolute left-0 top-1/2 transform -translate-y-1/2 bg-white bg-opacity-20 hover:bg-opacity-30 rounded-full p-2 focus:outline-none"
+          >
+            <ChevronLeftIcon class="w-6 h-6 text-white" />
+          </button>
+          <button
+            @click="nextSlide"
+            class="absolute right-0 top-1/2 transform -translate-y-1/2 bg-white bg-opacity-20 hover:bg-opacity-30 rounded-full p-2 focus:outline-none"
+          >
+            <ChevronRightIcon class="w-6 h-6 text-white" />
+          </button>
         </div>
       </div>
     </div>
@@ -63,20 +90,21 @@
 </template>
 
 <script setup>
-import { ref, onMounted } from "vue";
+import { ref, onMounted, computed } from "vue";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-
-// Import images
-import giveLoveIcon from '@/assets/images/givelove.png'
-import user1Avatar from '@/assets/images/user1.jpg'
-import user2Avatar from '@/assets/images/user2.jpg'
+import { ChevronLeftIcon, ChevronRightIcon } from 'lucide-vue-next';
 
 gsap.registerPlugin(ScrollTrigger);
 
 const header = ref(null);
 const statRefs = ref([]);
-const testimonialRefs = ref([]);
+const carousel = ref(null);
+const carouselContainer = ref(null);
+const currentSlide = ref(0);
+const isDragging = ref(false);
+const startX = ref(0);
+const scrollLeft = ref(0);
 
 const stats = [
   {
@@ -99,16 +127,84 @@ const testimonials = [
       "I've got good returns in just 3 months thanks to this bot. It's a game-changer for intraday traders!",
     name: "Rahul M.",
     role: "Business Owner",
-    avatar: user1Avatar,
+    avatar: "/public/user1.jpg",
   },
   {
     quote:
-      "Finally, a system that actually works! No more sleepless nights over trades.",
+      "The support team is incredibly responsive. They've helped me optimize my trading strategy.",
     name: "Pooja K.",
     role: "Working Professional",
-    avatar: user2Avatar,
+    avatar: "/public/user2.jpg",
+  },
+
+  {
+    quote:
+      "I was skeptical at first, but the results speak for themselves. Highly recommended!",
+    name: "Priya R.",
+    role: "Investor",
+    avatar: "/public/user4.jpg",
   },
 ];
+
+const totalSlides = computed(() => testimonials.length);
+
+const startDrag = (e) => {
+  isDragging.value = true;
+  startX.value = e.type === "mousedown" ? e.pageX : e.touches[0].pageX;
+  scrollLeft.value = carousel.value.scrollLeft;
+  document.body.style.overflowY = "hidden";
+};
+
+const drag = (e) => {
+  if (!isDragging.value) return;
+  e.preventDefault();
+  const x = e.type === "mousemove" ? e.pageX : e.touches[0].pageX;
+  const dist = x - startX.value;
+  carousel.value.scrollLeft = scrollLeft.value - dist;
+};
+
+const endDrag = () => {
+  isDragging.value = false;
+  document.body.style.overflowY = "auto";
+  snapToSlide();
+};
+
+const snapToSlide = () => {
+  const slideWidth = carousel.value.offsetWidth;
+  const scrollPosition = carousel.value.scrollLeft;
+  const targetSlide = Math.round(scrollPosition / slideWidth);
+  scrollToSlide(targetSlide);
+};
+
+const scrollToSlide = (slideIndex) => {
+  const slideWidth = carousel.value.offsetWidth;
+  gsap.to(carousel.value, {
+    scrollLeft: slideWidth * slideIndex,
+    duration: 0.5,
+    ease: "power2.out",
+  });
+  currentSlide.value = slideIndex;
+};
+
+const nextSlide = () => {
+  scrollToSlide((currentSlide.value + 1) % totalSlides.value);
+};
+
+const prevSlide = () => {
+  scrollToSlide((currentSlide.value - 1 + totalSlides.value) % totalSlides.value);
+};
+
+const handleHover = (index) => {
+  if (currentSlide.value !== index) {
+    gsap.to(`#testimonial-${index}`, { opacity: 1, duration: 0.3 });
+  }
+};
+
+const handleHoverExit = (index) => {
+  if (currentSlide.value !== index) {
+    gsap.to(`#testimonial-${index}`, { opacity: 0.5, duration: 0.3 });
+  }
+};
 
 onMounted(() => {
   // Animate header
@@ -151,37 +247,23 @@ onMounted(() => {
           end: "bottom center",
           toggleActions: "play none none reverse",
         },
-        delay: index * 0.2, // Stagger effect
+        delay: index * 0.2,
       }
     );
   });
 
-  // Animate testimonials
-  testimonialRefs.value.forEach((testimonial, index) => {
-    gsap.fromTo(
-      testimonial,
-      {
-        y: 50,
-        opacity: 0,
-      },
-      {
-        y: 0,
-        opacity: 1,
-        duration: 2,
-        ease: "power3.out",
-        scrollTrigger: {
-          trigger: testimonial,
-          start: "top bottom-=50",
-          end: "bottom center",
-          toggleActions: "play none none reverse",
-        },
-        delay: index * 0.3, // Stagger effect
-      }
-    );
-  });
+  // Initialize carousel
+  scrollToSlide(0);
 });
 </script>
 
 <style scoped>
-/* Add any additional custom styles here if needed */
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
 </style>
+
