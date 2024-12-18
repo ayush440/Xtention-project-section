@@ -48,14 +48,14 @@ import ScrollTrigger from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
 
 const imgArray = [
-  "/marquee/logo1.png",
-  "/marquee/logo2.png",
-  "/marquee/logo3.png",
-  "/marquee/logo4.png",
-  "/marquee/logo5.png",
-  "/marquee/logo6.png",
-  "/marquee/logo7.png",
-  "/marquee/logo8.png",
+  "/src/assets/marquee/logo1.png",
+  "/src/assets/marquee/logo2.png",
+  "/src/assets/marquee/logo3.png",
+  "/src/assets/marquee/logo4.png",
+  "/src/assets/marquee/logo5.png",
+  "/src/assets/marquee/logo6.png",
+  "/src/assets/marquee/logo7.png",
+  "/src/assets/marquee/logo8.png",
 ]
 
 onMounted(() => {
