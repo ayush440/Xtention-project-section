@@ -5,9 +5,9 @@
         <!-- Header -->
         <div ref="header" class="flex items-center gap-6 mb-16 opacity-0">
           <div class="w-40">
-            <img src="/public/givelove.png" alt="Love icon" />
+            <img :src="giveLoveIcon" alt="Love icon" />
           </div>
-          <h2 class="text-2xl  md:text-3xl lg:text-4xl font-bold text-white">
+          <h2 class="text-2xl md:text-3xl lg:text-4xl font-bold text-white">
             We are loved by people from all parts of India
           </h2>
         </div>
@@ -67,6 +67,11 @@ import { ref, onMounted } from "vue";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
+// Import images
+import giveLoveIcon from '@/assets/images/givelove.png'
+import user1Avatar from '@/assets/images/user1.jpg'
+import user2Avatar from '@/assets/images/user2.jpg'
+
 gsap.registerPlugin(ScrollTrigger);
 
 const header = ref(null);
@@ -94,14 +99,14 @@ const testimonials = [
       "I've got good returns in just 3 months thanks to this bot. It's a game-changer for intraday traders!",
     name: "Rahul M.",
     role: "Business Owner",
-    avatar: "/public/user1.jpg", // Image for Rahul
+    avatar: user1Avatar,
   },
   {
     quote:
       "Finally, a system that actually works! No more sleepless nights over trades.",
     name: "Pooja K.",
     role: "Working Professional",
-    avatar: "/public/user2.jpg", // Image for Pooja
+    avatar: user2Avatar,
   },
 ];
 
