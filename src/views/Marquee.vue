@@ -1,8 +1,8 @@
 <template>
-  <div class=" bg-[#222222] w-full  flex flex-col px-5 2xl:px-16">
+  <div class=" bg-[#222222] w-full  flex flex-col px-5 2xl:px-16 py-0 sm:py-0 md:py-0 lg:py-20 ">
     <div class="relative w-full mt-20 sm:mt-20 xl:mt-0 2xl:mt-0 sm:p-0 md:p-6 2xl:p-6 xl:p-6">
-      <div class="absolute left-0 top-0 bottom-0 w-16 bg-gradient-to-r from-[#222222] to-transparent z-10"></div>
-      <div class="absolute right-0 top-0 bottom-0 w-16 bg-gradient-to-l from-[#222222] to-transparent z-10"></div>
+      <div class="absolute left-0 top-0 bottom-0 w-16 sm:16 lg:w-96 bg-gradient-to-r from-[#222222] to-transparent z-10"></div>
+      <div class="absolute right-0 top-0 bottom-0 w-16 sm:16 lg:w-96 bg-gradient-to-l from-[#222222] to-transparent z-10"></div>
       
       <!-- Desktop Marquee -->
       <div class="hidden lg:block w-full bg-[#222222] overflow-hidden">
