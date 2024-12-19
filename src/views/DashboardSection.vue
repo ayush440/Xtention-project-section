@@ -58,7 +58,7 @@ onMounted(() => {
     // First, animate the dashboard image
     .to(dashboardImage.value, {
       scale: 0.8,
-      opacity: 0.3,
+      opacity: 0,
       duration: 1.5,
       ease: 'power2.inOut'
     })

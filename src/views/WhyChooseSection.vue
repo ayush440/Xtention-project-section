@@ -1,16 +1,17 @@
 <template>
-  <div class="md:min-h-[200px] min-h-screen w-full bg-[#222222] flex items-center px-5 2xl:px-16">
-    <div class="w-full p-6">
+  <div class="md:min-h-[200px] min-h-screen w-full bg-[#222222] flex items-center px-5 sm:px-0 xs:px-0 md:px-5 2xl:px-16">
+    <div class="w-full mt-20 sm:mt-20 xl:mt-0 2xl:mt-0 sm:p-0 md:p-6 2xl:p-6 xl:p-6 ">
       <div class="mx-auto">
         <!-- Header -->
-        <div ref="header" class="flex items-center gap-6 mb-12 opacity-0">
-          <div class="w-16 h-16 lg:w-20 lg:h-20 flex items-center justify-center">
-            <img src="/public/lit.png" alt="Flame icon" class="w-full h-full object-contain" />
-          </div>
-          <h2 class="text-2xl lg:text-[39.2px] font-bold text-white font-CabinetGrotesk">
-            Why Choose<br /> <h2 class="mt-6" > Matrix Trading Tech?</h2> 
-          </h2>
-        </div>
+        <div ref="header" class="flex items-center gap-6 mb-14 lg:mb-20 opacity-0">
+  <div class="w-16 h-16 lg:w-20 lg:h-20 flex items-center justify-center">
+    <img src="/public/lit.png" alt="Flame icon" class="w-full h-full object-contain" />
+  </div>
+  <h2 class="text-2xl lg:text-[39.2px] font-bold text-white font-CabinetGrotesk leading-relaxed">
+    Why Choose Matrix Trading Tech?
+  </h2>
+</div>
+
 
         <!-- Features Grid -->
         <div class="space-y-6 lg:space-y-8">

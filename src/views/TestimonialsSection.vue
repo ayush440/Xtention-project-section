@@ -1,16 +1,17 @@
 <template>
   <div class="min-h-screen w-full bg-[#222222] flex items-center px-5 2xl:px-16">
-    <div class="w-full p-6">
+    <div class="w-full mt-20 sm:mt-20 xl:mt-0 2xl:mt-0 sm:p-0 md:p-6 2xl:p-6 xl:p-6">
       <div class="mx-auto">
         <!-- Header -->
-        <div ref="header" class="flex items-center gap-4 lg:gap-6 mb-8 lg:mb-16 opacity-0">
-          <div class="w-24 lg:w-40">
-            <img :src="giveloveLogo" alt="Love icon" />
-          </div>
-          <h2 class="text-2xl lg:text-[39.2px] font-bold text-white font-CabinetGrotesk">
-            We are loved by people from all parts of India
-          </h2>
-        </div>
+        <div ref="header" class="flex items-center gap-4 lg:gap-6 mb-10 lg:mb-20 opacity-0">
+  <div class="w-24 lg:w-40">
+    <img :src="giveloveLogo" alt="Love icon" />
+  </div>
+  <h2 class="text-2xl lg:text-[39.2px] font-bold text-white font-CabinetGrotesk leading-relaxed">
+    We are loved by people from all parts of India
+  </h2>
+</div>
+
 
         <!-- Stats Grid -->
         <div class="grid grid-cols-3 gap-4 lg:gap-12 mb-8 lg:mb-16">
@@ -155,7 +156,7 @@ onMounted(() => {
     {
       y: 0,
       opacity: 1,
-      duration: 4,
+      duration: 2,
       ease: "power3.out",
       scrollTrigger: {
         trigger: header.value,
@@ -177,7 +178,7 @@ onMounted(() => {
       {
         y: 0,
         opacity: 1,
-        duration: 4,
+        duration: 1,
         ease: "power3.out",
         scrollTrigger: {
           trigger: stat,
@@ -198,14 +199,14 @@ onMounted(() => {
   const testimonialWidth = carouselWidth / testimonials.length;
 
   gsap.to(carousel.value, {
-    x: -carouselWidth,
-    duration: testimonials.length * 10,
-    ease: "none",
-    repeat: -1,
-    modifiers: {
-      x: gsap.utils.unitize(x => parseFloat(x) % carouselWidth)
-    }
-  });
+  x: -carouselWidth,  // Move the carousel to the left by the width of the entire carousel
+  duration: testimonials.length * 3, // Speed of scrolling
+  ease: "none",
+  repeat: -1,  // Keep repeating the animation infinitely
+  modifiers: {
+    x: gsap.utils.unitize(x => parseFloat(x) % carouselWidth)  // This ensures a seamless, infinite loop
+  }
+});
 });
 </script>
 
