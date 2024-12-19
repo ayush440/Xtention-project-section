@@ -1,12 +1,12 @@
 <template>
   <div class="w-full bg-[#222222] flex items-center min-h-screen relative overflow-hidden" ref="pageContainer">
-    <div class="w-full lg:w-1/2 p-6 lg:p-16">
-      <div class="max-w-4xl mx-auto">
+    <div class="w-full p-6">
+      <div class=" mx-auto">
         <!-- Dashboard Image with animation -->
         <div ref="dashboardContainer" class="overflow-hidden rounded-lg">
           <img 
             ref="dashboardImage"
-            src="/public/TradingDashboard.png" 
+            src="/public/TradingDashboardd.png" 
             alt="Trading Dashboard"
             class="w-full transform-gpu" 
           />

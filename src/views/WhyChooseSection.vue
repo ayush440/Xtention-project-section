@@ -1,41 +1,41 @@
 <template>
-  <div class="min-h-screen w-full bg-[#222222] flex items-center">
-    <div class="w-full lg:w-1/2 p-6 lg:p-16">
-      <div class="max-w-3xl mx-auto">
+  <div class="md:min-h-[200px] min-h-screen w-full bg-[#222222] flex items-center px-5 2xl:px-16">
+    <div class="w-full p-6">
+      <div class="mx-auto">
         <!-- Header -->
         <div ref="header" class="flex items-center gap-6 mb-12 opacity-0">
-          <div class="w-20 h-20 flex items-center justify-center">
+          <div class="w-16 h-16 lg:w-20 lg:h-20 flex items-center justify-center">
             <img src="/public/lit.png" alt="Flame icon" class="w-full h-full object-contain" />
           </div>
-          <h2 class="text-3xl md:text-3xl lg:text-4xl font-bold text-white">
-            Why Choose<br />Matrix Trading Tech?
+          <h2 class="text-2xl lg:text-[39.2px] font-bold text-white font-CabinetGrotesk">
+            Why Choose<br /> <h2 class="mt-6" > Matrix Trading Tech?</h2> 
           </h2>
         </div>
 
         <!-- Features Grid -->
-        <div class="space-y-8">
+        <div class="space-y-6 lg:space-y-8">
           <div 
             v-for="(feature, index) in features" 
             :key="index"
             :ref="el => { if (el) featureRefs[index] = el }"
             :class="[
-              ' p-2 rounded-xl transition-all hover:transform hover:translate-x-2 border-2 opacity-0',
+              'p-2 rounded-xl transition-all hover:transform hover:translate-x-2 border-2 opacity-0',
               index === 0 ? 'bg-[#2F2A1B] border-[#4A3F2C]' : 'bg-[#2a2a2a] border-transparent hover:border-[#00D647]'
             ]"
           >
-            <div class="flex items-start gap-6">
+            <div class="flex items-start gap-4 lg:gap-6">
               <img src="/public/vectorr.png" 
                 alt="Green check icon" 
-                class="w-7 h-7 flex-shrink-0 mt-5"
+                class="w-5 h-5 lg:w-7 lg:h-7 flex-shrink-0 mt-3 lg:mt-5"
               />
               <div>
                 <h3 
-                  class="text-2xl font-semibold mb-3"
+                  class="text-lg lg:text-[22.2px] font-semibold mb-2 lg:mb-3 font-CabinetGrotesk"
                   :class="index === 0 ? 'text-[#FFB800]' : 'text-white'"
                 >
                   {{ feature.title }}
                 </h3>
-                <p class="text-gray-400 text-lg">
+                <p class="text-gray-400 text-base lg:text-[19.2px] font-['Open Sans']">
                   {{ feature.description }}
                 </p>
               </div>
@@ -60,7 +60,8 @@ const featureRefs = ref([])
 const features = [
   {
     title: "We're SEBI Registered-INH000019035",
-    description: 'SEBI registered algo trading platform for secure trading.'
+    
+    
   },
   {
     title: 'Nifty & BankNifty Options Trading',

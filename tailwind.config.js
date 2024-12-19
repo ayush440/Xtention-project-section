@@ -9,7 +9,8 @@ export default {
       fontFamily: {
         Poppins: ['Poppins', 'sans-serif'],
         Caveat: ['Caveat', 'cursive'],
-      CabinetGrotesk: ['Cabinet Grotesk', 'sans-serif'],
+      CabinetGrotesk: ['Cabinet Grotesk', 'sans-serif',],
+      OpenSans: ["Open Sans",'sans-serif']
       },
       colors: {
         primary: '#00b852', // Replace with your desired color code

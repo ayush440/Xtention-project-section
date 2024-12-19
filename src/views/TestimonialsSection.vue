@@ -1,88 +1,65 @@
 <template>
-  <div class="min-h-screen w-full bg-[#222222] flex items-center">
-    <div class="w-full lg:w-1/2 p-6 lg:p-16">
-      <div class="max-w-3xl mx-auto">
+  <div class="min-h-screen w-full bg-[#222222] flex items-center px-5 2xl:px-16">
+    <div class="w-full p-6">
+      <div class="mx-auto">
         <!-- Header -->
-        <div ref="header" class="flex items-center gap-6 mb-16 opacity-0">
-          <div class="w-40">
+        <div ref="header" class="flex items-center gap-4 lg:gap-6 mb-8 lg:mb-16 opacity-0">
+          <div class="w-24 lg:w-40">
             <img :src="giveloveLogo" alt="Love icon" />
           </div>
-          <h2 class="text-2xl md:text-3xl lg:text-4xl font-bold text-white">
+          <h2 class="text-2xl lg:text-[39.2px] font-bold text-white font-CabinetGrotesk">
             We are loved by people from all parts of India
           </h2>
         </div>
 
         <!-- Stats Grid -->
-        <div class="grid grid-cols-3 gap-12 mb-16">
+        <div class="grid grid-cols-3 gap-4 lg:gap-12 mb-8 lg:mb-16">
           <div
             v-for="(stat, index) in stats"
             :key="index"
-            :ref="el => {
-              if (el) statRefs[index] = el;
-            }"
+            :ref="el => { if (el) statRefs[index] = el }"
             class="opacity-0"
           >
-            <div class="text-3xl font-bold text-white mb-4">
-              {{ stat.value }}
+            <div class="text-2xl lg:text-[39.2px] font-bold text-white mb-2 lg:mb-4 font-CabinetGrotesk">
+              {{ stat.displayValue }}{{ stat.suffix }}
             </div>
-            <div class="text-gray-400 text-xl">{{ stat.label }}</div>
+            <div class="text-gray-400 text-sm lg:text-[22.2px] font-['Open Sans']">{{ stat.label }}</div>
           </div>
         </div>
 
         <!-- Testimonials Carousel -->
-        <div class="relative" ref="carouselContainer">
+        <div class="relative overflow-hidden" ref="carouselContainer">
+          <div class="absolute left-0 top-0 bottom-0 w-8 lg:w-16 bg-gradient-to-r from-[#222222] to-transparent z-10"></div>
+          <div class="absolute right-0 top-0 bottom-0 w-8 lg:w-16 bg-gradient-to-l from-[#222222] to-transparent z-10"></div>
           <div
-            class="overflow-x-scroll overflow-y-hidden whitespace-nowrap scrollbar-hide"
+            class="flex whitespace-nowrap"
             ref="carousel"
-            @mousedown="startDrag"
-            @mousemove="drag"
-            @mouseup="endDrag"
-            @mouseleave="endDrag"
-            @touchstart="startDrag"
-            @touchmove="drag"
-            @touchend="endDrag"
           >
             <div
-              v-for="(testimonial, index) in testimonials"
-              :key="index"
-              :id="`testimonial-${index}`"
-              class="inline-block w-[400px] h-[300px] p-8 bg-[#2a2a2a] rounded-xl mr-8 last:mr-0 transition-opacity duration-300 ease-in-out shrink-0 testimonial-card"
-              :class="{ 'opacity-50 hover:opacity-100 transition-opacity duration-300': currentSlide !== index }"
-              @mouseenter="handleHover(index)"
-              @mouseleave="handleHoverExit(index)"
+              v-for="(testimonial, index) in duplicatedTestimonials"
+              :key="`${index}-${testimonial.name}`"
+              class="inline-block w-[300px] lg:w-[400px] h-[250px] lg:h-[300px] p-4 lg:p-8 bg-[#2a2a2a] rounded-xl mr-4 lg:mr-8 shrink-0 testimonial-card"
             >
               <div class="h-full flex flex-col justify-between">
-                <p class="text-gray-300 mb-6 text-lg leading-relaxed whitespace-normal line-clamp-4">
+                <p class="text-gray-300 mb-4 lg:mb-6 text-base lg:text-[19.2px] leading-relaxed whitespace-normal line-clamp-4 font-['Open Sans']">
                   {{ testimonial.quote }}
                 </p>
-                <div class="flex items-center gap-4">
+                <div class="flex items-center gap-3 lg:gap-4">
                   <img
                     :src="testimonial.avatar"
                     alt="User Avatar"
-                    class="w-16 h-16 rounded-full"
+                    class="w-12 h-12 lg:w-16 lg:h-16 rounded-full"
                   />
                   <div>
-                    <div class="text-white font-medium text-xl">
+                    <div class="text-white font-medium text-lg lg:text-[22.2px] font-CabinetGrotesk">
                       {{ testimonial.name }}
                     </div>
-                    <div class="text-gray-400 text-lg">{{ testimonial.role }}</div>
+                    <div class="text-gray-400 text-sm lg:text-[19.2px] font-['Open Sans']">{{ testimonial.role }}</div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-          <button
-            @click="prevSlide"
-            class="absolute left-0 top-1/2 transform -translate-y-1/2 bg-white bg-opacity-20 hover:bg-opacity-30 rounded-full p-2 focus:outline-none"
-          >
-            <ChevronLeftIcon class="w-6 h-6 text-white" />
-          </button>
-          <button
-            @click="nextSlide"
-            class="absolute right-0 top-1/2 transform -translate-y-1/2 bg-white bg-opacity-20 hover:bg-opacity-30 rounded-full p-2 focus:outline-none"
-          >
-            <ChevronRightIcon class="w-6 h-6 text-white" />
-          </button>
         </div>
       </div>
     </div>
@@ -93,7 +70,6 @@
 import { ref, onMounted, computed } from "vue";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { ChevronLeftIcon, ChevronRightIcon } from 'lucide-vue-next';
 
 // Import images
 import giveloveLogo from '/public/givelove.png';
@@ -107,25 +83,27 @@ const header = ref(null);
 const statRefs = ref([]);
 const carousel = ref(null);
 const carouselContainer = ref(null);
-const currentSlide = ref(0);
-const isDragging = ref(false);
-const startX = ref(0);
-const scrollLeft = ref(0);
 
-const stats = [
+const stats = ref([
   {
-    value: "5+",
+    displayValue: 0,
+    endValue: 5,
+    suffix: '+',
     label: "years of experience",
   },
   {
-    value: "7000+",
+    displayValue: 0,
+    endValue: 7000,
+    suffix: '+',
     label: "Happy Traders",
   },
   {
-    value: "12+",
+    displayValue: 0,
+    endValue: 12,
+    suffix: '+',
     label: "Broker Support",
   },
-];
+]);
 
 const testimonials = [
   {
@@ -151,64 +129,19 @@ const testimonials = [
   },
 ];
 
-const totalSlides = computed(() => testimonials.length);
+const duplicatedTestimonials = computed(() => [...testimonials, ...testimonials]);
 
-const startDrag = (e) => {
-  isDragging.value = true;
-  startX.value = e.type === "mousedown" ? e.pageX : e.touches[0].pageX;
-  scrollLeft.value = carousel.value.scrollLeft;
-  document.body.style.overflowY = "hidden";
-};
-
-const drag = (e) => {
-  if (!isDragging.value) return;
-  e.preventDefault();
-  const x = e.type === "mousemove" ? e.pageX : e.touches[0].pageX;
-  const dist = x - startX.value;
-  carousel.value.scrollLeft = scrollLeft.value - dist;
-};
-
-const endDrag = () => {
-  isDragging.value = false;
-  document.body.style.overflowY = "auto";
-  snapToSlide();
-};
-
-const snapToSlide = () => {
-  const slideWidth = carousel.value.offsetWidth;
-  const scrollPosition = carousel.value.scrollLeft;
-  const targetSlide = Math.round(scrollPosition / slideWidth);
-  scrollToSlide(targetSlide);
-};
-
-const scrollToSlide = (slideIndex) => {
-  const slideWidth = carousel.value.offsetWidth;
-  gsap.to(carousel.value, {
-    scrollLeft: slideWidth * slideIndex,
-    duration: 0.5,
-    ease: "power2.out",
+const animateValue = (obj) => {
+  const duration = 2000;
+  const startValue = 0;
+  const endValue = obj.endValue;
+  
+  gsap.to(obj, {
+    displayValue: endValue,
+    duration: duration / 1000,
+    ease: "power1.out",
+    roundProps: "displayValue"
   });
-  currentSlide.value = slideIndex;
-};
-
-const nextSlide = () => {
-  scrollToSlide((currentSlide.value + 1) % totalSlides.value);
-};
-
-const prevSlide = () => {
-  scrollToSlide((currentSlide.value - 1 + totalSlides.value) % totalSlides.value);
-};
-
-const handleHover = (index) => {
-  if (currentSlide.value !== index) {
-    gsap.to(`#testimonial-${index}`, { opacity: 1, duration: 0.3 });
-  }
-};
-
-const handleHoverExit = (index) => {
-  if (currentSlide.value !== index) {
-    gsap.to(`#testimonial-${index}`, { opacity: 0.5, duration: 0.3 });
-  }
 };
 
 onMounted(() => {
@@ -222,7 +155,7 @@ onMounted(() => {
     {
       y: 0,
       opacity: 1,
-      duration: 2,
+      duration: 4,
       ease: "power3.out",
       scrollTrigger: {
         trigger: header.value,
@@ -244,42 +177,48 @@ onMounted(() => {
       {
         y: 0,
         opacity: 1,
-        duration: 2,
+        duration: 4,
         ease: "power3.out",
         scrollTrigger: {
           trigger: stat,
           start: "top bottom-=50",
           end: "bottom center",
           toggleActions: "play none none reverse",
+          onEnter: () => {
+            animateValue(stats.value[index]);
+          },
         },
         delay: index * 0.2,
       }
     );
   });
 
-  // Initialize carousel
-  scrollToSlide(0);
+  // Initialize infinite scroll for carousel
+  const carouselWidth = carousel.value.offsetWidth;
+  const testimonialWidth = carouselWidth / testimonials.length;
+
+  gsap.to(carousel.value, {
+    x: -carouselWidth,
+    duration: testimonials.length * 10,
+    ease: "none",
+    repeat: -1,
+    modifiers: {
+      x: gsap.utils.unitize(x => parseFloat(x) % carouselWidth)
+    }
+  });
 });
 </script>
 
 <style scoped>
-.scrollbar-hide {
-  -ms-overflow-style: none;
-  scrollbar-width: none;
-}
-.scrollbar-hide::-webkit-scrollbar {
-  display: none;
-}
-
 .testimonial-card {
-  min-width: 400px;
-  max-width: 400px;
+  min-width: 300px;
+  max-width: 300px;
 }
 
-@media (max-width: 480px) {
+@media (min-width: 1024px) {
   .testimonial-card {
-    min-width: 300px;
-    max-width: 300px;
+    min-width: 400px;
+    max-width: 400px;
   }
 }
 </style>

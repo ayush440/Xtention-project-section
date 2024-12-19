@@ -16,9 +16,9 @@
     </nav>
 
     <!-- Content Container -->
-    <div ref="contentContainer" class="relative z-10 w-full h-[calc(100vh-88px)] mt-0 sm:-mt-20 md:-mt-0 xl:-mt-0 lg:-mt-0  flex items-center">
+    <div ref="contentContainer" class="relative z-10 w-full h-[calc(100vh-88px)]   flex items-center">
       <div class="w-full px-6 lg:px-16">
-        <div class="w-full lg:w-1/2 max-w-2xl">
+        <div class="w-full ">
           <!-- SEBI Registration Badge -->
           <div class="inline-block bg-[#FFD700]/10 backdrop-blur-sm px-4 py-2 rounded-full mb-8">
             <span class="text-[#FFD700] font-semibold">SEBI REGISTRATION</span>
@@ -47,7 +47,7 @@ import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
 // Import images
-import backgroundImage from '@/assets/images/background.png'
+import backgroundImage from '@/assets/images/image78.png'
 import logoImage from '@/assets/images/matrix.png'
 
 gsap.registerPlugin(ScrollTrigger)
