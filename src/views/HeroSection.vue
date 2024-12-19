@@ -32,7 +32,7 @@
           <p class="text-lg lg:text-xl mb-8 text-gray-200">
             Automate your Nifty & Bank Nifty trades and watch profits grow effortlessly.
           </p>
-          <p class="text-2xl lg:text-2xl font-Caveat text-[#00D647] italic">
+          <p class="text-2xl  lg:text-2xl font-Caveat text-[#00D647] italic">
             Say goodbye to emotional trading. Let our smart algorithms handle it all while you focus on what matters!
           </p>
         </div>

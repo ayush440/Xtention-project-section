@@ -51,16 +51,13 @@
                         class="w-full p-2 sm:p-5 text-[14.2px] rounded-xl bg-[#19bf63] placeholder-white/70 text-white focus:outline-none focus:ring-2 focus:ring-white/50 font-OpenSans"
                       />
                       
-                      <select
-                        v-model="formData.role"
-                        class="w-full p-2 sm:p-5 text-[14.2px] rounded-xl bg-[#19bf63] text-white focus:outline-none focus:ring-2 focus:ring-white/50 font-OpenSans"
-                        required
-                      >
-                        <option value="" disabled selected>You're a</option>
-                        <option value="trader">Trader</option>
-                        <option value="investor">Investor</option>
-                        <option value="both">Both</option>
-                      </select>
+                      <input
+                type="tel"
+                v-model="formData.mobile"
+                placeholder="City"
+                class="w-full px-4 py-2 text-[14.2px] rounded-xl bg-[#19bf63] placeholder-white/70 text-white focus:outline-none focus:ring-2 focus:ring-white/50 font-OpenSans"
+                required
+              />
                       
                       <button
                         type="submit"
@@ -170,7 +167,7 @@
       <button
         v-if="isSmallScreen && !showLoginForm"
         @click="openLoginForm"
-        class="fixed bottom-10 left-4 right-4 bg-[#FFD700]  text-black sm:py-2  w-[60%] md:w-[40%]  mx-auto text-[20.2px] rounded-full font-semibold hover:bg-[#e6c200] transition-colors flex items-center justify-center gap-3 z-50 font-CabinetGrotesk"
+        class="fixed bottom-10 left-4 right-4 bg-[#FFD700]  text-black py-3 w-[60%] md:w-[40%]  mx-auto text-[20.2px] rounded-full font-semibold hover:bg-[#e6c200] transition-colors flex items-center justify-center gap-3 z-50 font-CabinetGrotesk"
       >
         <span>Get Demo</span>
         <span class="bg-black text-white text-[14.2px] px-2 sm:px-3 rounded-lg">IT'S FREE</span>
@@ -248,26 +245,26 @@
   onMounted(() => {
     window.addEventListener('resize', handleResize)
   
-    if (!isSmallScreen.value) {
-      gsap.fromTo(loginForm.value, 
-        { 
-          x: '100%',
-          opacity: 0 
-        },
-        {
-          x: 0,
-          opacity: 1,
-          duration: 1.5,
-          ease: 'power3.out',
-          scrollTrigger: {
-            trigger: loginForm.value,
-            start: 'top bottom',
-            end: 'bottom center',
-            toggleActions: 'play none none reverse'
-          }
-        }
-      )
-    }
+    // if (!isSmallScreen.value) {
+    //   gsap.fromTo(loginForm.value, 
+    //     { 
+    //       x: '100%',
+    //       opacity: 0 
+    //     },
+    //     {
+    //       x: 0,
+    //       opacity: 1,
+    //       duration: 1.5,
+    //       ease: 'power3.out',
+    //       scrollTrigger: {
+    //         trigger: loginForm.value,
+    //         start: 'top bottom',
+    //         end: 'bottom center',
+    //         toggleActions: 'play none none reverse'
+    //       }
+    //     }
+    //   )
+    // }
   })
   
   onUnmounted(() => {

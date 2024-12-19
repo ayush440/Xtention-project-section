@@ -9,7 +9,7 @@
       <TestimonialsSection />
       <MarketingSection />
     </div>
-    <div class=" xl:w-[40%] 2xl:max-w-[30%] mx-auto ">
+    <div class=" xl:w-[40%] 2xl:max-w-[30%] pr-0 sm:pr-0 lg:pr-5 2xl:pr-16 ">
       <SubmitForm :showLoginForm="showLoginForm" :toggleLogin="toggleLogin" />
     </div>
     <!-- <FooterSection class="footer-section" /> -->

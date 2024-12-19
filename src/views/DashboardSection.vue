@@ -1,6 +1,6 @@
 <template>
   <div class="w-full bg-[#222222] flex items-center min-h-screen relative overflow-hidden" ref="pageContainer">
-    <div class="w-full p-6">
+    <div class="w-full p-6 ">
       <div class=" mx-auto">
         <!-- Dashboard Image with animation -->
         <div ref="dashboardContainer" class="overflow-hidden rounded-lg">

@@ -1,9 +1,9 @@
 <template>
-  <div class="min-h-screen w-full bg-[#222222] flex items-center px-5 2xl:px-16">
+  <div class="min-h-[200px] w-full bg-[#222222] flex items-center px-5 2xl:px-16">
     <div class="w-full mt-20 sm:mt-20 xl:mt-0 2xl:mt-0 sm:p-0 md:p-6 2xl:p-6 xl:p-6">
       <div class="mx-auto">
         <!-- Header -->
-        <div ref="header" class="flex items-center gap-4 lg:gap-6 mb-10 lg:mb-20 opacity-0">
+        <div ref="header" class="flex items-center gap-4 sm:gap-4 md:gap-0 lg:gap-0  mb-14 lg:mb-20 opacity-0">
   <div class="w-24 lg:w-40">
     <img :src="giveloveLogo" alt="Love icon" />
   </div>
