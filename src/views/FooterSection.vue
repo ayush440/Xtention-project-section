@@ -3,7 +3,7 @@
     <div class="bg-gradient-to-b from-[#0A0A0A] to-[#222426] px-8 md:px-10 pt-10 xl:px-20 xl:pt-20 pb-10 mx-auto">
       <div class="text-white grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 place-items-start justify-items-start md:justify-items-center desktop:max-w-[85%] mx-auto">
         <div class="text-[12px] md:text-[14px] space-y-4 col-span-2 md:col-span-1">
-          <img src="/public/matrix.png" alt="" @click="goToHome" class="cursor-pointer"/>
+          <img src="/public/matrix.png" alt="" />
           <p>
             Our platform offers you an opportunity to fully automate any of our
             strategies in your trading account and experience its accomplishment
@@ -74,7 +74,13 @@
       <div class="text-white text-center font-ProximaNova w-full md:w-[90%] mx-auto mt-8 space-y-4 desktop:max-w-[85%]">
         <p class="font-CabinetGrotesk font-bold text-[18px] md:text-[22px]">Disclaimer</p>
         <p class="text-[12px] md:text-[14px]">Matrix Trading Tech is a sophisticated algotrading platform, uniquely integrated with TradingView and custom strategies, offering a seamless API connection to your broker. Tailored for retail traders and investors, our platform is dedicated to elevating wealth management practices. While we strive to ensure flawless operation, we recommend consulting a financial advisor before trading or investing through our platform. Please be aware that Matrix Trading Tech cannot be held accountable for any losses resulting from market volatility or any platform-related issues.</p>
-        <p class="text-[14px] md:text-[16px]">Proudly designed and developed by <span class="text-[#00B852]">Xtention crew technologies</span></p>
+        <p class="text-[14px] md:text-[16px]">
+  Proudly designed and developed by 
+  <a href="https://www.xtentioncrew.tech/" class="text-[#00B852]">
+    Xtention crew technologies
+  </a>
+</p>
+
       </div>
     </div>
   </footer>
