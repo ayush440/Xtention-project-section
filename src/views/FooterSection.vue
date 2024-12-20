@@ -31,7 +31,7 @@
               </a>
             </li>
             <li class="flex items-center gap-3">
-              <MapPin class="w-6 h-6" />
+              <MapPin class="w-16 h-16 -ml-1" />
               <p>
                 Matrix Trading Technologies, Vidhan Sabha Road, Dubey Colony,
                 Raipur (C.G) 492007
