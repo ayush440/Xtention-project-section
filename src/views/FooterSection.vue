@@ -1,196 +1,106 @@
 <template>
-  <footer class="relative w-full bg-black px-6 lg:px-16 py-24 z-50 min-h-[900px]">
-    <div class="max-w-[90rem] mx-auto">
-      <!-- Main Footer Content -->
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8 lg:gap-12 mb-20">
-        <!-- Company Info -->
-        <div ref="companyInfo" class="opacity-0 lg:col-span-5">
-          <img 
-            src="/public/matrix.png" 
-            alt="Matrix Trading Tech" 
-            class="h-16 mb-8"
-          />
-          <p class="text-gray-300 text-lg leading-relaxed">
-            Our platform offers you an opportunity to fully automate any of our strategies in your trading account and experience its accomplishment in the live market. We also provide the opportunity to automate your own strategy in your trading account by using our platform.
+  <footer>
+    <div class="bg-gradient-to-b from-[#0A0A0A] to-[#222426] px-8 md:px-10 pt-10 xl:px-20 xl:pt-20 pb-10 mx-auto">
+      <div class="text-white grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 place-items-start justify-items-start md:justify-items-center desktop:max-w-[85%] mx-auto">
+        <div class="text-[12px] md:text-[14px] space-y-4 col-span-2 md:col-span-1">
+          <img src="/public/matrix.png" alt="" @click="goToHome" class="cursor-pointer"/>
+          <p>
+            Our platform offers you an opportunity to fully automate any of our
+            strategies in your trading account and experience its accomplishment
+            in the live market. We also provide the opportunity to automate your
+            own strategy in your trading account by using our platform.
           </p>
         </div>
-
-        <!-- Quick Links -->
-        <div ref="quickLinks" class="opacity-0 lg:col-span-2">
-          <h3 class="text-white text-2xl font-semibold mb-8">Quick Links</h3>
-          <ul class="space-y-4">
-            <li>
-              <a href="#" class="text-gray-300 hover:text-white transition-colors text-lg">Terms & condition</a>
+        <div class="text-[16px] space-y-4 mt-6 xl:mt-0">
+          <p class="font-CabinetGrotesk font-extrabold text-[20px]">Quick Links</p>
+          <div class="font-ProximaNova space-y-2 flex flex-col">
+            <router-link to="terms-and-conditions?tab=terms">Terms & Conditions</router-link>
+            <router-link to="terms-and-conditions?tab=privacy">Privacy Policy</router-link>
+          </div>
+        </div>
+        <div class="text-[16px] space-y-4 md:order-last mt-6 col-span-2 xl:order-none xl:col-span-1 xl:mt-0">
+          <p class="font-CabinetGrotesk font-extrabold text-[20px]">Get in touch with us</p>
+          <ul class="font-ProximaNova space-y-4">
+            <li class="flex items-center gap-3">
+              <Phone class="w-6 h-6" />
+              <a
+                :href="generatePhoneCallLink('9244911494')"
+                class="font-ProximaNovaThin tracking-wider text-[16px]"
+              >
+                (+91) 9244911494
+              </a>
             </li>
-            <li>
-              <a href="#" class="text-gray-300 hover:text-white transition-colors text-lg">privacy policy</a>
+            <li class="flex items-center gap-3">
+              <MapPin class="w-6 h-6" />
+              <p>
+                Matrix Trading Technologies, Vidhan Sabha Road, Dubey Colony,
+                Raipur (C.G) 492007
+              </p>
             </li>
-            <li>
-              <a href="#" class="text-gray-300 hover:text-white transition-colors text-lg">Disclaimer</a>
+            <li class="flex items-center gap-3">
+              <Mail class="w-6 h-6" />
+              <a
+                :href="
+                  generateMailToLink(
+                    'Matrixalgo01@gmail.com',
+                    'cc@example.com',
+                    'Subject of the email',
+                    'Body of the email'
+                  )
+                "
+              >
+                Matrixalgo01@gmail.com
+              </a>
             </li>
           </ul>
         </div>
-
-        <!-- Contact Info -->
-        <div ref="contactInfo" class="opacity-0 lg:col-span-3">
-          <h3 class="text-white text-2xl font-semibold mb-8">Get in touch with us</h3>
-          <div class="space-y-4">
-            <div class="flex items-center gap-4">
-              <Phone class="text-[#00D647] w-7 h-7" />
-              <a href="tel:+918962336003" class="text-gray-300 hover:text-white transition-colors text-lg">
-                +91 8962336003
-              </a>
-            </div>
-            <div class="flex items-start gap-4">
-              <MapPin class="text-[#00D647] w-7 h-7 flex-shrink-0" />
-              <p class="text-gray-300 text-lg">
-                Matrix Trading Technologies, Vidhan Sabha Road, Dubey Colony, Raipur (C.G) 492007
-              </p>
-            </div>
-            <div class="flex items-center gap-4">
-              <Mail class="text-[#00D647] w-7 h-7" />
-              <a href="mailto:support@matrixtradingtech.com" class="text-gray-300 hover:text-white transition-colors text-lg">
-                support@matrixtradingtech.com
-              </a>
-            </div>
-          </div>
-        </div>
-
-        <!-- Social Links -->
-        <div ref="socialLinks" class="opacity-0 lg:col-span-2">
-          <h3 class="text-white text-2xl font-semibold mb-8">Follow Us on</h3>
-          <div class="flex gap-6">
-            <a href="#" class="text-gray-300 hover:text-white transition-colors">
-              <Linkedin class="w-8 h-8" />
+        <div class="text-[16px] space-y-4 mt-6 xl:mt-0 ">
+          <p class="font-CabinetGrotesk font-extrabold text-[20px]">Follow Us on</p>
+          <ul class="flex gap-5">
+           <li>
+            <a href="https://www.instagram.com/matrixtradingtech/" target="_blank">
+              <Instagram class="w-7 h-7" />
             </a>
-            <a href="#" class="text-gray-300 hover:text-white transition-colors">
-              <Instagram class="w-8 h-8" />
+           </li>
+           <li>
+            <a href="https://www.facebook.com/matrixtradingtech?mibextid=ZbWKwL" target="_blank">
+              <Facebook class="w-7 h-7" />
             </a>
-            <a href="#" class="text-gray-300 hover:text-white transition-colors">
-              <Facebook class="w-8 h-8" />
-            </a>
-          </div>
+           </li>
+          </ul>
         </div>
       </div>
-
-    
-      <!-- Disclaimer Text -->
-      <div ref="disclaimer" class="text-gray-400 text-base leading-relaxed space-y-6 opacity-0">
-        <p>
-          Message From Regulator: No need to issue cheques by investors while subscribing to IPO. Just write the bank account number and sign in the application form to authorise your bank to make payment in case of allotment. No worries for refund as the money remains in investor's account...
-        </p>
-        <p>
-          1) Message from Exchange(s): Prevent Unauthorised transactions in your account --> Update your mobile numbers/email IDs with your stock brokers. Receive information of your transactions directly from Exchange on your mobile/email at the end of the day. Issued in the interest of investors. 2) Message from Depositories: a) Prevent Unauthorized Transactions in your demat account --> Update your mobile number with your Depository Participant. Receive alerts on your registered mobile for all debit and other important transactions in your demat account directly from NSDL on the same day issued in the interest of investors. b) KYC is one time exercise while dealing in securities markets - once KYC is done through a SEBI registered intermediary (broker, DP, Mutual Fund etc.), you need not undergo the same process again when you approach another intermediary.
-        </p>
-        <p>
-          Company Registration Number (CIN): Sharekhan Ltd: U99999MH1995PLC087498; Sharekhan Commodities Pvt. Ltd: U67120MH2000PTC127261; SHAREKHAN BNP PARIBAS FINANCIAL SERVICES LIMITED: U65920MH2004PLC149518; Sharekhan.com India Pvt Ltd: U80904MH2000PTC126954; Sharekhan Consultants Pvt. Ltd: U67190MH2000PTC127257
-        </p>
-        <p>
-          Disclaimer: Investment in securities market are subject to market risks, read all the related documents carefully before investing.Brokerage will not exceed SEBI prescribed limit.Please refer the Risk Disclosure Document issued by SEBI and go through the Rights and Obligations and Do's and Dont's issued by Stock Exchanges and Depositories before trading on the Stock Exchanges. For commodities derivatives please note that Commodities Derivatives are highly leveraged instruments. PMS is not offered in Commodity Derivative Segment by Sharekhan Limited. Before investing in the asset class consider your investment objectives, level of experience and risk appetite carefully.
-        </p>
-        <p>
-          Mutual funds disclaimer: Mutual Fund investment are subject to market risk. Read all the scheme related documents carefully before investing. For more details, click here. Quantities, amounts, figures, graphs and rates shown / displayed are exemplary and not recommendatory or actual. For scheme-related information, please refer to the Scheme Information Document available on the relevant AMC's website for detailed Risk Factors, assets allocation, investment strategy, etc.
-        </p>
-        <p>
-          Click here to check out the Shareshop near you.
-        </p>
-      </div>
-
-      <!-- Credits -->
-      <div ref="credits" class="text-center text-gray-400 text-lg mt-12 opacity-0">
-        Proudly designed and made by 
-        <a href="#" class="text-[#00D647] hover:underline">X-tention crew technologies</a>
+      <hr class="mt-10 md:mt-16 opacity-25 desktop:max-w-[85%] mx-auto">
+      <div class="text-white text-center font-ProximaNova w-full md:w-[90%] mx-auto mt-8 space-y-4 desktop:max-w-[85%]">
+        <p class="font-CabinetGrotesk font-bold text-[18px] md:text-[22px]">Disclaimer</p>
+        <p class="text-[12px] md:text-[14px]">Matrix Trading Tech is a sophisticated algotrading platform, uniquely integrated with TradingView and custom strategies, offering a seamless API connection to your broker. Tailored for retail traders and investors, our platform is dedicated to elevating wealth management practices. While we strive to ensure flawless operation, we recommend consulting a financial advisor before trading or investing through our platform. Please be aware that Matrix Trading Tech cannot be held accountable for any losses resulting from market volatility or any platform-related issues.</p>
+        <p class="text-[14px] md:text-[16px]">Proudly designed and developed by <span class="text-[#00B852]">Xtention crew technologies</span></p>
       </div>
     </div>
   </footer>
 </template>
 
 <script setup>
-import { ref, onMounted } from 'vue'
-import { gsap } from 'gsap'
-import { ScrollTrigger } from 'gsap/ScrollTrigger'
-import { Phone, MapPin, Mail, Linkedin, Instagram, Facebook } from 'lucide-vue-next'
+import { Phone, MapPin, Mail, Instagram, Facebook } from 'lucide-vue-next';
 
-gsap.registerPlugin(ScrollTrigger)
+const goToHome = () => {
+  // Implement your navigation logic here
+};
 
-const companyInfo = ref(null)
-const quickLinks = ref(null)
-const contactInfo = ref(null)
-const disclaimer = ref(null)
-const credits = ref(null)
-const socialLinks = ref(null)
+const generatePhoneCallLink = (phoneNumber) => {
+  return `tel:${phoneNumber}`;
+};
 
-onMounted(() => {
-  // Animate main content sections
-  const sections = [companyInfo.value, quickLinks.value, contactInfo.value, socialLinks.value]
-  sections.forEach((section, index) => {
-    gsap.fromTo(
-      section,
-      { 
-        y: 50,
-        opacity: 0
-      },
-      {
-        y: 0,
-        opacity: 1,
-        duration: 2,
-        ease: 'power3.out',
-        scrollTrigger: {
-          trigger: section,
-          start: 'top bottom-=100',
-          end: 'bottom center',
-          toggleActions: 'play none none reverse'
-        },
-        delay: index * 0.2 // Stagger effect
-      }
-    )
-  })
-
-  // Animate disclaimer
-  gsap.fromTo(
-    disclaimer.value,
-    { 
-      y: 30,
-      opacity: 0
-    },
-    {
-      y: 0,
-      opacity: 1,
-      duration: 1,
-      ease: 'power3.out',
-      scrollTrigger: {
-        trigger: disclaimer.value,
-        start: 'top bottom-=50',
-        end: 'bottom center',
-        toggleActions: 'play none none reverse'
-      }
-    }
-  )
-
-  // Animate credits
-  gsap.fromTo(
-    credits.value,
-    { 
-      y: 20,
-      opacity: 0
-    },
-    {
-      y: 0,
-      opacity: 1,
-      duration: 2,
-      ease: 'power3.out',
-      scrollTrigger: {
-        trigger: credits.value,
-        start: 'top bottom-=30',
-        end: 'bottom center',
-        toggleActions: 'play none none reverse'
-      }
-    }
-  )
-})
+const generateMailToLink = (to, cc, subject, body) => {
+  let mailtoLink = `mailto:${to}`;
+  const params = [];
+  if (cc) params.push(`cc=${encodeURIComponent(cc)}`);
+  if (subject) params.push(`subject=${encodeURIComponent(subject)}`);
+  if (body) params.push(`body=${encodeURIComponent(body)}`);
+  if (params.length > 0) {
+    mailtoLink += `?${params.join('&')}`;
+  }
+  return mailtoLink;
+};
 </script>
-
-<style scoped>
-/* Add any additional custom styles here if needed */
-</style>
 

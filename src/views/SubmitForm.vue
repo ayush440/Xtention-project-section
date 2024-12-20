@@ -12,11 +12,11 @@
             <!-- Form Container -->
             <div class="relative mx-auto w-full max-w-md rounded-2xl bg-[#00b852] shadow-xl">
               <!-- Badge Container - Simplified -->
-              <div class="absolute left-1/2 -top-12 -translate-x-1/2">
+              <div class="absolute left-1/2 -top-16 -translate-x-1/2">
                 <img
                   src="/public/sebi.png"
                   alt="SEBI Badge"
-                  class="h-24 w-24 object-contain"
+                  class="h-26 w-26 object-contain"
                 />
               </div>
 
@@ -109,11 +109,11 @@
       <div class="flex min-h-screen items-center justify-center">
         <div class="relative w-full max-w-md rounded-2xl bg-[#00b852] p-8 shadow-2xl">
           <!-- Badge Logo for Desktop - Simplified -->
-          <div class="absolute left-1/2 -top-12 -translate-x-1/2">
+          <div class="absolute left-1/2 -top-16 -translate-x-1/2">
             <img
               src="/public/sebi.png"
               alt="SEBI Badge"
-              class="h-24 w-24 object-contain"
+              class="h-26 w-26 object-contain"
             />
           </div>
 
