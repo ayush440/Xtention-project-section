@@ -5,7 +5,7 @@
         <!-- Header -->
         <div ref="header" class="flex items-center gap-4 lg:gap-6 mb-12 lg:mb-16 opacity-0">
           <div class="w-16 h-16 lg:w-20 lg:h-20">
-            <img src="../assets/images/image9.png" alt="How It Works" class="w-full h-full object-contain" />
+            <img src="../assets/images/question.webp" alt="How It Works" class="w-full h-full object-contain" />
           </div>
           <h2 class="text-2xl lg:text-[39.2px] font-bold text-white font-CabinetGrotesk">
             How It Works Section?
