@@ -14,7 +14,7 @@
               <!-- Badge Container - Simplified -->
               <div class="absolute left-1/2 -top-16 -translate-x-1/2">
                 <img
-                  src="/public/sebi.svg"
+                  src="/public/sebi.png"
                   alt="SEBI Badge"
                   class="h-26 w-26 object-contain"
                 />
@@ -111,7 +111,7 @@
           <!-- Badge Logo for Desktop - Simplified -->
           <div class="absolute left-1/2 -top-16 -translate-x-1/2">
             <img
-              src="/public/sebi.svg"
+              src="../../public/sebilogo.svg"
               alt="SEBI Badge"
               class="h-26 w-26 object-contain"
             />
@@ -197,6 +197,7 @@ import { ref, onMounted, onUnmounted, computed } from 'vue'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import axios from 'axios'
+import { useRouter } from 'vue-router';
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -206,6 +207,7 @@ const windowWidth = ref(window.innerWidth)
 const isSubmitting = ref(false)
 const message = ref('')
 const messageClass = ref('')
+const router = useRouter('')
 
 const formData = ref({
   name: '',
@@ -227,6 +229,7 @@ const handleSubmit = async () => {
     message.value = 'Form submitted successfully! We will contact you soon.'
     messageClass.value = 'bg-green-500 text-white'
     resetForm()
+    router.push('/ThankYou')
   } catch (error) {
     console.error('Error submitting form:', error)
     message.value = 'An error occurred. Please try again later.'

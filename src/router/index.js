@@ -12,6 +12,11 @@ const routes = [
     name: 'terms-and-conditions',
     component: () => import('@/views/TermsAndConditionsView.vue')
   },
+  {
+    path: '/ThankYou',
+    name: 'ThankYou',
+    component: () => import('@/views/ThankYou.vue')
+  },
  
 ]
 
