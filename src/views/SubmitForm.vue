@@ -216,7 +216,7 @@ const formData = ref({
   city: '',
 })
 
-const isSmallScreen = computed(() => windowWidth.value < 1024)
+const isSmallScreen = computed(() => windowWidth.value < 1280)
 
 const handleSubmit = async () => {
   isSubmitting.value = true
