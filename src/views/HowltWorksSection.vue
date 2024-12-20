@@ -172,6 +172,6 @@ onMounted(() => {
 })
 
 const handleCall = () => {
-  window.location.href = 'tel:+919009566516'
+  window.location.href = 'tel:+919244911494'
 }
 </script>
