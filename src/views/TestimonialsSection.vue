@@ -7,7 +7,7 @@
   <div class="w-24 lg:w-40">
     <img :src="giveloveLogo" alt="Love icon" />
   </div>
-  <h2 class="text-2xl -ml-0 sm:ml-0 md:-ml-0 xl:-ml-16 lg:text-[39.2px] font-bold text-white font-CabinetGrotesk leading-relaxed">
+  <h2 class="text-2xl -ml-0 sm:ml-0 md:-ml-0 lg:-ml-0 2xl:-ml-16 lg:text-[39.2px] font-bold text-white font-CabinetGrotesk leading-relaxed">
     We are loved by people from all parts of India
   </h2>
 </div>

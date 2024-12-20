@@ -14,9 +14,9 @@
               <!-- Badge Container - Simplified -->
               <div class="absolute left-1/2 -top-16 -translate-x-1/2">
                 <img
-                  src="/public/sebiwebp.webp"
+                  src="/public/webpsebi.webp"
                   alt="SEBI Badge"
-                  class="h-26 w-26 object-contain"
+                  class="w-[130px] object-contain"
                 />
               </div>
 
@@ -88,7 +88,7 @@
 
                 <!-- Trust Indicator -->
                 <div class="mt-8 text-center">
-                  <img src="/public/usersframe.png" alt="" class="mx-auto block" />
+                  <img src="/public/webpframe.webp" alt="" class="mx-auto block w-[170px] " />
                   <p class="mt-4 text-[16px] font-medium text-white font-OpenSans">
                     Trusted by 7000+ Customer across the globe
                   </p>
@@ -111,9 +111,9 @@
           <!-- Badge Logo for Desktop - Simplified -->
           <div class="absolute left-1/2 -top-16 -translate-x-1/2">
             <img
-              src="/public/sebiwebp.webp"
+              src="/public/webpsebi.webp"
               alt="SEBI Badge"
-              class="h-26 w-26 object-contain"
+              class="w-[130px] object-contain"
             />
           </div>
 
@@ -171,7 +171,7 @@
 
           <!-- Trust Indicator -->
           <div class="mt-8 text-center">
-            <img src="/public/usersframe.png" alt="" class="mx-auto block" />
+            <img src="/public/webpframe.webp" alt="" class="mx-auto block w-[170px]" />
             <p class="mt-4 text-[16px] font-medium text-white font-OpenSans">
               Trusted by 7000+ Customer across the globe
             </p>

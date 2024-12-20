@@ -48,7 +48,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
 // Import images
 import backgroundImage from '@/assets/images/image78.png'
-import logoImage from '@/assets/images/matrix.png'
+import logoImage from '@/assets/images/matrixwebp.webp'
 
 gsap.registerPlugin(ScrollTrigger)
 
