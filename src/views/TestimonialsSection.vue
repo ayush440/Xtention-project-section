@@ -3,11 +3,11 @@
     <div class="w-full mt-20 sm:mt-20 xl:mt-0 2xl:mt-0 sm:p-0 md:p-6 2xl:p-6 xl:p-6">
       <div class="mx-auto">
         <!-- Header -->
-        <div ref="header" class="flex items-center gap-4 sm:gap-4 md:gap-0 lg:gap-0  mb-14 lg:mb-20 opacity-0">
+        <div ref="header" class="flex items-center gap-4 sm:gap-4 md:gap-0 lg:gap-0   mb-14 lg:mb-20 opacity-0">
   <div class="w-24 lg:w-40">
     <img :src="giveloveLogo" alt="Love icon" />
   </div>
-  <h2 class="text-2xl lg:text-[39.2px] font-bold text-white font-CabinetGrotesk leading-relaxed">
+  <h2 class="text-2xl -ml-0 sm:ml-0 md:-ml-0 xl:-ml-16 lg:text-[39.2px] font-bold text-white font-CabinetGrotesk leading-relaxed">
     We are loved by people from all parts of India
   </h2>
 </div>

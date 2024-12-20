@@ -88,7 +88,7 @@
 
                 <!-- Trust Indicator -->
                 <div class="mt-8 text-center">
-                  <img src="/public/sebiwebp.webp" alt="" class="mx-auto block" />
+                  <img src="/public/usersframe.png" alt="" class="mx-auto block" />
                   <p class="mt-4 text-[16px] font-medium text-white font-OpenSans">
                     Trusted by 7000+ Customer across the globe
                   </p>
@@ -111,7 +111,7 @@
           <!-- Badge Logo for Desktop - Simplified -->
           <div class="absolute left-1/2 -top-16 -translate-x-1/2">
             <img
-              src="../../public/sebilogo.svg"
+              src="/public/sebiwebp.webp"
               alt="SEBI Badge"
               class="h-26 w-26 object-contain"
             />
