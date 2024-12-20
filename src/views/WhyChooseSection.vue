@@ -5,7 +5,7 @@
         <!-- Header -->
         <div ref="header" class="flex items-center gap-6 mb-14 lg:mb-20 opacity-0">
           <div class="w-16 h-16 lg:w-20 lg:h-20 flex items-center justify-center">
-            <img src="/public/lit.png" alt="Flame icon" class="w-full h-full object-contain" />
+            <img src="/public/lit.webp" alt="Flame icon" class="w-full h-full object-contain" />
           </div>
           <h2 class="text-2xl lg:text-[39.2px] font-bold text-white font-CabinetGrotesk leading-relaxed">
             Why Choose Matrix Trading Tech?

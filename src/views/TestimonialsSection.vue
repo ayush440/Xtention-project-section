@@ -73,7 +73,7 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 // Import images
-import giveloveLogo from '/public/givelove.png';
+import giveloveLogo from '/public/give-love.webp';
 import user1Avatar from '/public/user1.jpg';
 import user2Avatar from '/public/user2.jpg';
 import user4Avatar from '/public/user4.jpg';
