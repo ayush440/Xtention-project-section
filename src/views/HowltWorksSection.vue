@@ -49,7 +49,7 @@
               class="bg-[#00b852] text-white py-1  lg:py-4  lg:px-5 text-base lg:text-[19.2px] rounded-lg hover:bg-[#00B33C] transition-colors flex items-center justify-center lg:justify-start gap-3 font-['Open Sans'] w-[80%] mx-auto lg:mx-0 2xl:mx-0 sm:mx-auto lg:w-auto"
             >
               <Phone class="w-5 h-5 lg:w-6 lg:h-6" />
-              <span>Call Us now +919109302789</span>
+              <span>Call Us now +919244911494</span>
             </button>
           </div>
         </div>
