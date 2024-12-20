@@ -2,18 +2,14 @@
   <div class="sticky top-0 z-50">
     <!-- Login Form Modal -->
     <transition name="modal">
-      <div v-if="showLoginForm" class="fixed inset-0 z-50" aria-labelledby="modal-title" role="dialog" aria-modal="true">
-        <div class="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
+      <div v-if="showLoginForm" class="fixed inset-0 z-50 overflow-y-auto" aria-labelledby="modal-title" role="dialog" aria-modal="true">
+        <div class="flex flex-col items-center justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0 relative">
           <div class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity" aria-hidden="true" @click="closeLoginForm"></div>
 
           <span class="hidden sm:inline-block sm:align-middle sm:h-screen" aria-hidden="true">&#8203;</span>
 
-          <div 
-            class="inline-block align-bottom bg-[#00b852] rounded-2xl text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:w-full relative"
-            :class="{ 'sm:max-w-xl': !isSmallScreen }"
-          >
-            <!-- Badge Logo for Modal -->
-            <div class="absolute -top-12 left-1/2 transform -translate-x-1/2 z-10">
+             <!-- Badge Logo for Modal -->
+             <div class="flex items-center justify-center mt-4 z-40 absolute top-0">
               <div class="w-24 h-24 rounded-full bg-[#FFD700] flex items-center justify-center border-4 border-white">
                 <img
                   src="/public//sebi.png"
@@ -23,7 +19,12 @@
               </div>
             </div>
 
-            <div class="bg-[#00b852] px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
+          <div 
+            class="inline-block align-bottom bg-[#00b852] rounded-2xl text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:w-full relative mt-16"
+            :class="{ 'sm:max-w-xl': !isSmallScreen }"
+          >
+
+            <div class="bg-[#00b852] px-4 pb-4 sm:p-6 sm:pb-4 h-fit">
               <div class="sm:flex sm:items-start">
                 <div class="mt-3 text-center sm:mt-0 sm:ml-4 sm:text-left w-full">
                   <div class="flex justify-between items-center mb-4">
