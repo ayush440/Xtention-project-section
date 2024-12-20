@@ -1,6 +1,6 @@
 <template>
-  <div class="min-h-[200px] w-full bg-[#222222] flex items-center px-5 2xl:px-16 ">
-    <div class="w-full mt-20 sm:mt-20 xl:mt-0 2xl:mt-0 sm:p-0 md:p-6 2xl:p-6 xl:p-6">
+  <div class="min-h-[200px] w-full bg-[#222222] flex items-center px-5 2xl:px-16 mt-0 sm:mt-0 lg:mt-10 ">
+    <div class="w-full mt-20 sm:mt-20  xl:mt-0 2xl:mt-0 sm:p-0 md:p-6 2xl:p-6 xl:p-6">
       <div class="mx-auto">
         <!-- Header -->
         <div ref="header" class="flex items-center gap-4 lg:gap-6 mb-12 lg:mb-16 opacity-0">
