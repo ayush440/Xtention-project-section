@@ -9,7 +9,7 @@
         >
           Agreement / Disclaimer / Terms & Conditions of Use
         </h1>
-        <p class="font-ProximaNova text-right text-[18px] mt-6">
+        <p class="font-OpenSans text-right text-[18px] mt-6">
           Last Updated: 13/07/2024
         </p>
       </div>
@@ -18,7 +18,7 @@
           <h3 class="font-Gotham-Medium tracking-[-1px] text-[25px]">
             1. Risk Disclosure
           </h3>
-          <p class="font-ProximaNova text-[20px]">
+          <p class="font-OpenSans text-[20px]">
             The information found on the MATRIX TRADING TECH website / software
             / portal was prepared without regard to any particular investor's
             investment objectives, financial situation, or needs. MATRIX TRADING
@@ -43,7 +43,7 @@
           <h3 class="font-Gotham-Medium tracking-[-1px] text-[25px]">
             2. Accuracy Of Information
           </h3>
-          <p class="font-ProximaNova text-[20px]">
+          <p class="font-OpenSans text-[20px]">
             The content of this website / software / platform / portal is
             subject to change at any time without notice, and is provided for
             the sole purpose of convenience / for automation / for education and
@@ -72,7 +72,7 @@
           <h3 class="font-Gotham-Medium tracking-[-1px] text-[25px]">
             3. Market Research, Reports, And Educational Materials
           </h3>
-          <p class="font-ProximaNova text-[20px]">
+          <p class="font-OpenSans text-[20px]">
             Any opinions, news, research, analyses, prices, reports, graphs,
             charts, or other information contained herein is provided for
             informational purposes only and does not constitute investment
@@ -92,7 +92,7 @@
           <h3 class="font-Gotham-Medium tracking-[-1px] text-[25px]">
             4. Distribution
           </h3>
-          <p class="font-ProximaNova text-[20px]">
+          <p class="font-OpenSans text-[20px]">
             This information is not intended for distribution, or use by, any
             person in any country where such distribution or use would be
             contrary to local law or regulation. None of the services or
@@ -109,7 +109,7 @@
           <h3 class="font-Gotham-Medium tracking-[-1px] text-[25px]">
             5. Performance Results
           </h3>
-          <p class="font-ProximaNova text-[20px]">
+          <p class="font-OpenSans text-[20px]">
             Past performance results are shown for illustration and example
             only, are hypothetical and as such have many inherent limitations.
             No representation is being made that any account will or is likely
@@ -136,7 +136,7 @@
           <h3 class="font-Gotham-Medium tracking-[-1px] text-[25px]">
             6. No Warranty/Guarantee
           </h3>
-          <p class="font-ProximaNova text-[20px]">
+          <p class="font-OpenSans text-[20px]">
             All the information, software, content, products, and services
             available from MATRIX TRADING TECH are provided on an “as-is” and
             “as-available” basis, with no warranties of any kind. MATRIX TRADING
@@ -165,7 +165,7 @@
           <h3 class="font-Gotham-Medium tracking-[-1px] text-[25px]">
             7. Service Agreement
           </h3>
-          <p class="font-ProximaNova text-[20px]">
+          <p class="font-OpenSans text-[20px]">
             This Service Agreement (“Agreement”) is by and between MATRIX
             TRADING TECH and the User of the MATRIX TRADING TECH website /
             software / platform / portal and services (hereinafter referred to
@@ -179,14 +179,14 @@
           <h3 class="font-Gotham-Medium tracking-[-1px] text-[25px]">
             8. Registration and Termination
           </h3>
-          <p class="font-ProximaNova text-[20px]">
+          <p class="font-OpenSans text-[20px]">
             By registering for this facility you perceive that MATRIX TRADING
             TECH and its administrators, and associates (hereinafter one by one
             and collectively mentioned as “MATRIX TRADING TECH”) reserves the
             right, in its sole discretion, to deny you access to the present
             website or any portion thereof hastily for the subsequent reasons:
           </p>
-          <ul class="font-ProximaNova text-[18px] space-y-2">
+          <ul class="font-OpenSans text-[18px] space-y-2">
             <li>&#8226; Any unauthorized access or use by you.</li>
             <li>
               &#8226; If you assign or transfer (or try the same) any rights
