@@ -5,7 +5,7 @@
     <div>
       <div>
         <h1
-          class="font-CabinetGrotesk font-bold tracking-[-1px] text-center text-[40px] leading-[45px] md:text-[40px]"
+          class="font-CabinetGrotesk font-bold tracking-[-1px] text-center text-[25px] leading-[45px] md:text-[40px]"
         >
           Agreement / Disclaimer / Terms & Conditions of Use
         </h1>

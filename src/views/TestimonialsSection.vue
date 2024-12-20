@@ -39,7 +39,7 @@
             <div
               v-for="(testimonial, index) in duplicatedTestimonials"
               :key="`${index}-${testimonial.name}`"
-              class="inline-block w-[300px] lg:w-[400px] h-[250px] lg:h-[300px] p-4 lg:p-8 bg-[#2a2a2a] rounded-xl mr-4 lg:mr-8 shrink-0 testimonial-card"
+              class="inline-block w-full lg:w-[400px] h-[250px] lg:h-[300px] p-4 lg:p-8 bg-[#2a2a2a] rounded-xl mr-4 lg:mr-8 shrink-0 testimonial-card"
             >
               <div class="h-full flex flex-col justify-between">
                 <p class="text-gray-300 mb-4 lg:mb-6 text-base lg:text-[19.2px] leading-relaxed whitespace-normal line-clamp-4 font-['Open Sans']">
