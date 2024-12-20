@@ -111,7 +111,7 @@
           <!-- Badge Logo for Desktop - Simplified -->
           <div class="absolute left-1/2 -top-16 -translate-x-1/2">
             <img
-              src="/public/sebi.png"
+              src="/public/sebi.svg"
               alt="SEBI Badge"
               class="h-26 w-26 object-contain"
             />
